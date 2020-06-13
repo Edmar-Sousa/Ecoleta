@@ -1,0 +1,53 @@
+@media (max-width: 900px) {
+    #home-page {
+        background-position-x: 70vw;
+    }
+
+    #home-page .content {
+        align-items: center;
+        text-align: center;
+    }
+
+    #home-page header a {
+        position: absolute;
+        bottom: 48px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #home-page main {
+        align-items: center;
+    }
+
+    #search .cards {
+        grid-template-columns: 1fr;
+    }
+
+    #search .card img {
+        height: 200px;
+    }
+
+    #criar-ponto .field-group {
+        flex-direction: column;
+    }
+
+    #criar-ponto .field-group .field + .field {
+        margin: 0;
+    }
+
+    #item-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1700px) {
+    #home-page {
+        background-position-x: 40vw;
+    }
+}
+
+@media (max-height: 760px) {
+    #home-page {
+        background-position-y: 100px;
+    }
+}

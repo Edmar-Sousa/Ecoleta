@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% set BodyId = "criar-ponto" %}
+
+{% block style %}
+    <link rel="stylesheet" href="styles/criar-ponto.css">
+    <link rel="stylesheet" href="styles/modal.css">
+{% endblock style %}
+
+{% block content %}
+    {% include 'partials/header.html' %}
+
+    <form action="/save" method="POST">
+        <h1>Cadastro do ponto de coleta</h1>
+
+        <fieldset>
+            <legend>
+                <h2>Dados da entidade</h2>
+            </legend>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="nome">Nome da entidade:</label>
+                    <input type="text" name="nome" required="required">
+                </div>
+
+                <div class="field">
+                    <label for="img">imagem da entidade:</label>
+                    <input type="url" name="img" required="required">
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="Endereco">Endereço</label>
+                    <input type="text" name="Endereco" required="required">
+                </div>
+
+                <div class="field">
+                    <label for="Numero">Numero</label>
+                    <input type="text" name="Endereco2" required="required">
+                </div>
+            </div>
+
+            <div class="field-group">
+                <div class="field">
+                    <label for="Estado">Estado</label>
+                    <select name="Estado" required="required">
+                        <option value="">Selecione o estado</option>
+                    </select>
+
+                    <input type="hidden" name="state">
+                </div>
+
+                <div class="field">
+                    <label for="Cidade">Cidade</label>
+                    <select name="Cidade" disabled="disabled" required="required">
+                        <option value="">Selecione a cidade</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <h2>Itens de coleta</h2>
+                <span>Selecione um ou mais itens</span>
+            </legend>
+
+            <div id="item-grid">
+                <li data-id="Lâmpadas">
+                    <img src="assets/lampadas.svg" alt="lampadas">
+                    <span>Lâmpadas</span>
+                </li>
+
+                <li data-id="Pilhas e baterias">
+                    <img src="assets/baterias.svg" alt="Pilhas e baterias">
+                    <span>Pilhas e baterias</span>
+                </li>
+
+                <li data-id="Papeis e papelão">
+                    <img src="assets/papeis-papelao.svg" alt="Papeis e papelão">
+                    <span>Papeis e papelão</span>
+                </li>
+
+                <li data-id="Residuos eletronicos">
+                    <img src="assets/eletronicos.svg" alt="Residuos eletronicos">
+                    <span>Residuos eletronicos</span>
+                </li>
+
+                <li data-id="Residuos organicos">
+                    <img src="assets/organicos.svg" alt="Residuos organicos">
+                    <span>Residuos organicos</span>
+                </li>
+
+                <li data-id="oleo">
+                    <img src="assets/oleo.svg" alt="oleo">
+                    <span>oleo</span>
+                </li>
+            </div>
+
+            <input type="hidden" name="itensList">
+
+        </fieldset>
+
+        <button type="submit">
+            Cadastrar ponto de coleta
+        </button>
+    </form>
+
+{% endblock content %}
+
+{% block modal %}
+    {% if saved %}
+        {% include 'partials/ponto_saved.html' %}
+    {% endif %}
+{% endblock modal %}
+
+{% block script %}
+    <script src="script/main.js"></script>
+{% endblock script %}

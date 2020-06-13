@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% set BodyId = 'search' %}
+
+{% block style %}
+    <link rel="stylesheet" href="styles/sarch.css">
+{% endblock style %}
+
+{% block content %}
+    {% include 'partials/header.html' %}
+
+    {% if total > 0 %}
+    <main>
+        <h4>
+            <strong>{{ total }} pontos</strong> encontrados
+        </h4>
+
+        <div class="cards">
+        {% for i in dados %}
+            <div class="card">
+                <img src="{{ i.image }}" alt="Colectoria">
+                <h1>{{ i.name }}</h1>
+                <h3>{{ i.items }}</h3>
+                <p>
+                    {{ i.city }}, {{ i.state }}
+                    <br>
+                    {{ i.address }}
+                    <br>
+                    {{ i.address2 }}
+                </p>
+            </div>
+        {% endfor %}
+        </div>
+
+    </main>
+    {% else %}
+        <h4> Desculpe nenhum local encontrado </h4>
+
+    {% endif %}
+{% endblock content %}
