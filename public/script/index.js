@@ -9,5 +9,5 @@ ButtonSearch.addEventListener('click', function(){
 });
 
 ButtonClose.addEventListener('click', function(){
-    Modal.classList.add('hide')
+    Modal.classList.add('hide');
 });
