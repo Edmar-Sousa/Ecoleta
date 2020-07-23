@@ -13,7 +13,7 @@ nunjucks.configure('src/view', {
 
 //rotas
 app.get('/', (req, res) => {
-    return res.render('index.html', { title : 'oi' }); //01:26:27
+    return res.render('index.html', { title : 'oi' }); 
 });
 
 app.get('/ponto-coleta', (req, res) => {
